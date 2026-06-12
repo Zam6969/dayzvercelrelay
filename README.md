@@ -28,7 +28,11 @@ This relay lets a friend send TikFinity or Twitch events to your DayZ bridge wit
    npx vercel
    ```
 
-4. Add Vercel KV storage to the project in the Vercel dashboard.
+4. Add Redis storage to the project in the Vercel dashboard:
+
+   - Open **Storage**.
+   - Click **Create** on **Redis**.
+   - Connect it to this project.
 
 5. Add these environment variables in Vercel:
 
@@ -37,7 +41,7 @@ This relay lets a friend send TikFinity or Twitch events to your DayZ bridge wit
    RELAY_HOST_ID=jenny
    ```
 
-   Vercel KV adds its own `KV_REST_API_URL` and token variables automatically.
+   Vercel Redis adds its own `REDIS_URL` variable automatically.
 
 6. Deploy:
 
@@ -50,6 +54,8 @@ This relay lets a friend send TikFinity or Twitch events to your DayZ bridge wit
    ```text
    https://your-vercel-project.vercel.app/api/health
    ```
+
+   It should show `storage: "redis"` after Redis is connected. Older Vercel KV projects are also supported and show `storage: "vercel-kv"`.
 
 ## Bridge Settings
 
